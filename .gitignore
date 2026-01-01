@@ -1,23 +1,64 @@
+# ===============================
 # Build output
+# ===============================
 target/
 *.class
 *.jar
 *.war
 
+# ===============================
 # IDE files
+# ===============================
+# Eclipse / STS
 .classpath
 .project
 .settings/
 .factorypath
-*.iml
-.vscode/
-.idea/
+.apt_generated
+.springBeans
+.sts4-cache
 
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# VS Code
+.vscode/
+
+# ===============================
+# Maven wrapper
+# ===============================
+.mvn/wrapper/maven-wrapper.jar
+.mvn/wrapper/maven-wrapper.properties
+
+# ===============================
+# Logs and temporary files
+# ===============================
+*.log
+*.tmp
+*.bak
+
+# ===============================
 # Environment / secrets
+# ===============================
 .env
 
-# Logs
-*.log
-
-# Ignore local Spring Boot properties
+# ===============================
+# Spring Boot local properties
+# ===============================
 src/main/resources/application.properties
+# src/main/resources/application-dev.properties  (optional dev-specific)
+# src/main/resources/application-test.properties (optional test-specific)
+
+# ===============================
+# Others
+# ===============================
+*.swp          # vim swap files
+.DS_Store      # macOS
+Thumbs.db      # Windows
+
+# Ignore build folders in submodules if you have any
+!**/src/main/**/target/
+!**/src/test/**/target/
