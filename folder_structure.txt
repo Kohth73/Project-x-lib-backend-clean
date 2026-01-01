@@ -1,0 +1,299 @@
+Folder PATH listing for volume New Volume
+Volume serial number is 7EEB-ED7A
+D:.
+|   .classpath
+|   .env
+|   .factorypath
+|   .gitattributes
+|   .gitignore
+|   .project
+|   folder_structure.txt
+|   HELP.md
+|   mvnw
+|   mvnw.cmd
+|   pom.xml
+|   projectx-all-in-one.bat
+|   projectx-build.bat
+|   
++---.mvn
+|   \---wrapper
+|           maven-wrapper.properties
+|           
++---.settings
+|       org.eclipse.core.resources.prefs
+|       org.eclipse.jdt.apt.core.prefs
+|       org.eclipse.jdt.core.prefs
+|       org.eclipse.m2e.core.prefs
+|       org.springframework.ide.eclipse.prefs
+|       
++---java
++---src
+|   +---main
+|   |   +---java
+|   |   |   \---libm
+|   |   |       \---backend
+|   |   |           \---lib
+|   |   |               |   DataInit.java
+|   |   |               |   JwtCliTest.java
+|   |   |               |   LibApplication.java
+|   |   |               |   
+|   |   |               +---config
+|   |   |               |       CorsConfig.java
+|   |   |               |       DataInitializer.java
+|   |   |               |       JwtRequestFilter.java
+|   |   |               |       JwtService.java
+|   |   |               |       JwtUtil.java
+|   |   |               |       PasswordEncoderConfig.java
+|   |   |               |       RoleDataInitializer.java
+|   |   |               |       SecurityConfig.java
+|   |   |               |       
+|   |   |               +---controller
+|   |   |               |       AuthController.java
+|   |   |               |       BookController.java
+|   |   |               |       FineController.java
+|   |   |               |       MemberController.java
+|   |   |               |       PermissionController.java
+|   |   |               |       ProfileController.java
+|   |   |               |       TransactionController.java
+|   |   |               |       UserController.java
+|   |   |               |       UserRoleController.java
+|   |   |               |       
+|   |   |               +---dto
+|   |   |               |       AuthResponse.java
+|   |   |               |       BookDto.java
+|   |   |               |       LoanTransactionDto.java
+|   |   |               |       LoginRequest.java
+|   |   |               |       MemberDto.java
+|   |   |               |       UserDto.java
+|   |   |               |       
+|   |   |               +---entity
+|   |   |               |       Book.java
+|   |   |               |       Fine.java
+|   |   |               |       LoanStatus.java
+|   |   |               |       LoanTransaction.java
+|   |   |               |       Member.java
+|   |   |               |       Permission.java
+|   |   |               |       Role.java
+|   |   |               |       User.java
+|   |   |               |       
+|   |   |               +---repository
+|   |   |               |       BookRepository.java
+|   |   |               |       FineRepository.java
+|   |   |               |       LoanTransactionRepository.java
+|   |   |               |       MemberRepository.java
+|   |   |               |       PermissionRepository.java
+|   |   |               |       RoleRepository.java
+|   |   |               |       UserRepository.java
+|   |   |               |       
+|   |   |               +---security
+|   |   |               |       CustomUserDetails.java
+|   |   |               |       
+|   |   |               +---service
+|   |   |               |   |   BookService.java
+|   |   |               |   |   FineService.java
+|   |   |               |   |   LoanTransactionService.java
+|   |   |               |   |   MemberService.java
+|   |   |               |   |   PermissionService.java
+|   |   |               |   |   RoleService.java
+|   |   |               |   |   UserService.java
+|   |   |               |   |   
+|   |   |               |   \---service
+|   |   |               |       \---impl
+|   |   |               |               BookServiceImpl.java
+|   |   |               |               FineServiceImpl.java
+|   |   |               |               LoanTransactionServiceImpl.java
+|   |   |               |               MemberServiceImpl.java
+|   |   |               |               PermissionServiceImpl.java
+|   |   |               |               RoleServiceImpl.java
+|   |   |               |               UserDetailsServiceImpl.java
+|   |   |               |               UserServiceImpl.java
+|   |   |               |               
+|   |   |               \---util
+|   |   |                       PasswordHasher.java
+|   |   |                       
+|   |   \---resources
+|   |       |   application-prod.properties
+|   |       |   application.properties
+|   |       |   
+|   |       +---static
+|   |       \---templates
+|   \---test
+|       \---java
+|           \---libm
+|               \---backend
+|                   \---lib
+|                       |   ApplicationContextTest.java
+|                       |   DataInitTest.java
+|                       |   LibApplicationTests.java
+|                       |   PasswordTest.java
+|                       |   
+|                       +---controller
+|                       |       AuthControllerIntegrationTest.java
+|                       |       AuthControllerMockMvcTest.java
+|                       |       ProfileControllerMockMvcTest.java
+|                       |       
+|                       \---service
+|                               LoanTransactionServiceTest.java
+|                               PermissionServiceTest.java
+|                               RoleServiceTest.java
+|                               UserServiceTest.java
+|                               
+\---target
+    +---classes
+    |   |   application-prod.properties
+    |   |   application.properties
+    |   |   
+    |   +---libm
+    |   |   \---backend
+    |   |       \---lib
+    |   |           |   DataInit.class
+    |   |           |   JwtCliTest.class
+    |   |           |   LibApplication.class
+    |   |           |   
+    |   |           +---config
+    |   |           |       CorsConfig$1.class
+    |   |           |       CorsConfig.class
+    |   |           |       DataInitializer.class
+    |   |           |       JwtRequestFilter.class
+    |   |           |       JwtService.class
+    |   |           |       JwtUtil.class
+    |   |           |       PasswordEncoderConfig.class
+    |   |           |       RoleDataInitializer.class
+    |   |           |       SecurityConfig.class
+    |   |           |       
+    |   |           +---controller
+    |   |           |       AuthController$AuthResponse.class
+    |   |           |       AuthController.class
+    |   |           |       BookController.class
+    |   |           |       FineController.class
+    |   |           |       MemberController.class
+    |   |           |       PermissionController.class
+    |   |           |       ProfileController.class
+    |   |           |       TransactionController.class
+    |   |           |       UserController.class
+    |   |           |       UserRoleController.class
+    |   |           |       
+    |   |           +---dto
+    |   |           |       AuthResponse.class
+    |   |           |       BookDto.class
+    |   |           |       LoanTransactionDto.class
+    |   |           |       LoginRequest.class
+    |   |           |       MemberDto.class
+    |   |           |       UserDto.class
+    |   |           |       
+    |   |           +---entity
+    |   |           |       Book.class
+    |   |           |       Fine.class
+    |   |           |       LoanStatus.class
+    |   |           |       LoanTransaction.class
+    |   |           |       Member.class
+    |   |           |       Permission.class
+    |   |           |       Role.class
+    |   |           |       User.class
+    |   |           |       
+    |   |           +---repository
+    |   |           |       BookRepository.class
+    |   |           |       FineRepository.class
+    |   |           |       LoanTransactionRepository.class
+    |   |           |       MemberRepository.class
+    |   |           |       PermissionRepository.class
+    |   |           |       RoleRepository.class
+    |   |           |       UserRepository.class
+    |   |           |       
+    |   |           +---security
+    |   |           |       CustomUserDetails.class
+    |   |           |       
+    |   |           +---service
+    |   |           |   |   BookService.class
+    |   |           |   |   FineService.class
+    |   |           |   |   LoanTransactionService.class
+    |   |           |   |   MemberService.class
+    |   |           |   |   PermissionService.class
+    |   |           |   |   RoleService.class
+    |   |           |   |   UserService.class
+    |   |           |   |   
+    |   |           |   \---service
+    |   |           |       \---impl
+    |   |           |               BookServiceImpl.class
+    |   |           |               FineServiceImpl.class
+    |   |           |               LoanTransactionServiceImpl.class
+    |   |           |               MemberServiceImpl.class
+    |   |           |               PermissionServiceImpl.class
+    |   |           |               RoleServiceImpl.class
+    |   |           |               UserDetailsServiceImpl.class
+    |   |           |               UserServiceImpl.class
+    |   |           |               
+    |   |           \---util
+    |   |                   PasswordHasher.class
+    |   |                   
+    |   \---META-INF
+    |       |   MANIFEST.MF
+    |       |   
+    |       \---maven
+    |           \---libm.backend
+    |               \---lib
+    |                       pom.properties
+    |                       pom.xml
+    |                       
+    +---generated-sources
+    |   \---annotations
+    +---generated-test-sources
+    |   \---test-annotations
+    +---maven-status
+    |   \---maven-compiler-plugin
+    |       +---compile
+    |       |   \---default-compile
+    |       |           createdFiles.lst
+    |       |           inputFiles.lst
+    |       |           
+    |       \---testCompile
+    |           \---default-testCompile
+    |                   createdFiles.lst
+    |                   inputFiles.lst
+    |                   
+    +---surefire-reports
+    |       2025-12-28T05-41-07_561-jvmRun1-commands.bin
+    |       2025-12-28T05-41-07_561-jvmRun1-events.bin
+    |       2025-12-28T05-41-07_561.dumpstream
+    |       2025-12-28T05-57-35_550.dumpstream
+    |       libm.backend.lib.ApplicationContextTest.txt
+    |       libm.backend.lib.controller.AuthControllerIntegrationTest.txt
+    |       libm.backend.lib.controller.AuthControllerMockMvcTest.txt
+    |       libm.backend.lib.controller.ProfileControllerMockMvcTest.txt
+    |       libm.backend.lib.DataInitTest.txt
+    |       libm.backend.lib.LibApplicationTests.txt
+    |       libm.backend.lib.service.LoanTransactionServiceTest.txt
+    |       libm.backend.lib.service.PermissionServiceTest.txt
+    |       libm.backend.lib.service.RoleServiceTest.txt
+    |       libm.backend.lib.service.UserServiceTest.txt
+    |       TEST-libm.backend.lib.ApplicationContextTest.xml
+    |       TEST-libm.backend.lib.controller.AuthControllerIntegrationTest.xml
+    |       TEST-libm.backend.lib.controller.AuthControllerMockMvcTest.xml
+    |       TEST-libm.backend.lib.controller.ProfileControllerMockMvcTest.xml
+    |       TEST-libm.backend.lib.DataInitTest.xml
+    |       TEST-libm.backend.lib.LibApplicationTests.xml
+    |       TEST-libm.backend.lib.service.LoanTransactionServiceTest.xml
+    |       TEST-libm.backend.lib.service.PermissionServiceTest.xml
+    |       TEST-libm.backend.lib.service.RoleServiceTest.xml
+    |       TEST-libm.backend.lib.service.UserServiceTest.xml
+    |       
+    \---test-classes
+        \---libm
+            \---backend
+                \---lib
+                    |   ApplicationContextTest.class
+                    |   DataInitTest.class
+                    |   LibApplicationTests.class
+                    |   PasswordTest.class
+                    |   
+                    +---controller
+                    |       AuthControllerIntegrationTest.class
+                    |       AuthControllerMockMvcTest.class
+                    |       ProfileControllerMockMvcTest.class
+                    |       
+                    \---service
+                            LoanTransactionServiceTest.class
+                            PermissionServiceTest.class
+                            RoleServiceTest.class
+                            UserServiceTest.class
+                            
