@@ -66,3 +66,6 @@ Thumbs.db      # Windows
 !**/src/main/**/target/
 !**/src/test/**/target/
 
+# Ignore test/debug files ending with Check.java
+src/test/java/libm/backend/lib/*Check.java
+
