@@ -40,6 +40,9 @@ target/
 *.tmp
 *.bak
 
+# Ignore temp/debug test file
+/src/test/java/libm/backend/lib/PasswordCheck.java
+
 # ===============================
 # Environment / secrets
 # ===============================
@@ -62,3 +65,4 @@ Thumbs.db      # Windows
 # Ignore build folders in submodules if you have any
 !**/src/main/**/target/
 !**/src/test/**/target/
+
