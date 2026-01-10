@@ -12,6 +12,8 @@ import javax.crypto.SecretKey;
 import java.util.Date;
 import java.util.function.Function;
 
+import org.springframework.security.core.userdetails.UserDetails;
+
 @Component
 public class JwtUtil {
 
@@ -23,6 +25,7 @@ public class JwtUtil {
         return Keys.hmacShaKeyFor(keyBytes);
     }
 
+    // --- Extract claims ---
     public String extractUsername(String token) {
         return extractClaim(token, Claims::getSubject);
     }
@@ -41,6 +44,7 @@ public class JwtUtil {
         return claimsResolver.apply(claims);
     }
 
+    // --- Generate token (username version) ---
     public String generateToken(String username) {
         return Jwts.builder()
                 .setSubject(username)
@@ -50,14 +54,25 @@ public class JwtUtil {
                 .compact();
     }
 
+    // --- Generate token (UserDetails version) ---
+    public String generateToken(UserDetails userDetails) {
+        return generateToken(userDetails.getUsername());
+    }
+
+    // --- Validate token ---
+    public boolean validateToken(String token, UserDetails userDetails) {
+        final String username = extractUsername(token);
+        return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
+    }
+
     public boolean validateToken(String token, String username) {
-        final String extractedUsername = extractUsername(token);
-        return (extractedUsername.equals(username) && !isTokenExpired(token));
+        return (extractUsername(token).equals(username) && !isTokenExpired(token));
     }
 
     private boolean isTokenExpired(String token) {
         return extractExpiration(token).before(new Date());
     }
 }
+
 
 

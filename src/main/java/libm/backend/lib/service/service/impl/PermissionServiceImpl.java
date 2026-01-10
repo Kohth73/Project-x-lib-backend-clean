@@ -14,6 +14,7 @@ public class PermissionServiceImpl implements PermissionService {
 
     @Override
     public Permission createPermission(String name, String code, String description) {
+        // Use the constructor we just added
         Permission permission = new Permission(name, code, description);
         return permissionRepository.save(permission);
     }
@@ -21,7 +22,7 @@ public class PermissionServiceImpl implements PermissionService {
     @Override
     public Permission getPermissionById(Long id) {
         return permissionRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Permission not found"));
+                .orElseThrow(() -> new RuntimeException("Permission not found with ID: " + id));
     }
 
     @Override
@@ -29,8 +30,3 @@ public class PermissionServiceImpl implements PermissionService {
         permissionRepository.deleteById(id);
     }
 }
-
-
-
-
-

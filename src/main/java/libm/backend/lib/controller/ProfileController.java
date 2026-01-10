@@ -22,47 +22,88 @@ public class ProfileController {
         this.userService = userService;
     }
 
+    // --- Get current authenticated user's profile ---
     @GetMapping
     @PreAuthorize("hasAuthority('PROFILE_VIEW')")
     public ResponseEntity<UserDto> getProfile() {
-        String email = SecurityContextHolder.getContext().getAuthentication().getName();
+        String email = SecurityContextHolder
+                .getContext()
+                .getAuthentication()
+                .getName();
+
         Optional<User> userOpt = userService.getUserByEmail(email);
-        return userOpt.map(user -> ResponseEntity.ok(userService.convertToDto(user)))
+
+        return userOpt
+                .map(user -> ResponseEntity.ok(userService.convertToDto(user)))
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @PostMapping
+    // --- Get any user's profile by ID (admin / monitor) ---
+    @GetMapping("/{id}")
+    @PreAuthorize("hasAuthority('PROFILE_VIEW_ANY')")
+    public ResponseEntity<UserDto> getProfileById(@PathVariable Long id) {
+        Optional<User> userOpt = userService.getUserById(id);
+
+        return userOpt
+                .map(user -> ResponseEntity.ok(userService.convertToDto(user)))
+                .orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
+    // --- Update own profile ---
+    @PutMapping
     @PreAuthorize("hasAuthority('PROFILE_UPDATE_SELF')")
     public ResponseEntity<UserDto> updateOwnProfile(@RequestBody UserDto updatedDto) {
-        String email = SecurityContextHolder.getContext().getAuthentication().getName();
-        Optional<User> existingOpt = userService.getUserByEmail(email);
+        String email = SecurityContextHolder
+                .getContext()
+                .getAuthentication()
+                .getName();
 
-        if (!existingOpt.isPresent()) return ResponseEntity.notFound().build();
+        Optional<User> existingOpt = userService.getUserByEmail(email);
+        if (existingOpt.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
 
         User existing = existingOpt.get();
-        if (updatedDto.getName() != null) existing.setName(updatedDto.getName());
-        if (updatedDto.getPassword() != null)
+
+        if (updatedDto.getName() != null) {
+            existing.setName(updatedDto.getName());
+        }
+
+        if (updatedDto.getPassword() != null) {
             existing.setPassword(userService.encodePassword(updatedDto.getPassword()));
+        }
 
         User saved = userService.saveUser(existing);
         return ResponseEntity.ok(userService.convertToDto(saved));
     }
 
+    // --- Update any user's profile (admin / monitor) ---
     @PutMapping("/{id}")
     @PreAuthorize("hasAuthority('PROFILE_UPDATE_ANY')")
-    public ResponseEntity<UserDto> updateAnyProfile(@PathVariable Long id, @RequestBody UserDto updatedDto) {
+    public ResponseEntity<UserDto> updateAnyProfile(
+            @PathVariable Long id,
+            @RequestBody UserDto updatedDto
+    ) {
         Optional<User> existingOpt = userService.getUserById(id);
-        if (!existingOpt.isPresent()) return ResponseEntity.notFound().build();
+        if (existingOpt.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
 
         User existing = existingOpt.get();
-        if (updatedDto.getName() != null) existing.setName(updatedDto.getName());
-        if (updatedDto.getPassword() != null)
+
+        if (updatedDto.getName() != null) {
+            existing.setName(updatedDto.getName());
+        }
+
+        if (updatedDto.getPassword() != null) {
             existing.setPassword(userService.encodePassword(updatedDto.getPassword()));
+        }
 
         User saved = userService.saveUser(existing);
         return ResponseEntity.ok(userService.convertToDto(saved));
     }
 }
+
 
 
 

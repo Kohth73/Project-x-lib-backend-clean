@@ -25,10 +25,16 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         User user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found: " + email));
 
-        // Safely fetch permissions
+        // Include both roles and permissions
         var authorities = user.getRoles().stream()
-                .flatMap(role -> role.getPermissions() != null ? role.getPermissions().stream() : Stream.empty())
-                .map(permission -> new SimpleGrantedAuthority(permission.getCode()))
+                .flatMap(role -> {
+                    Stream<SimpleGrantedAuthority> roleAuthority =
+                            Stream.of(new SimpleGrantedAuthority(role.getName()));
+                    Stream<SimpleGrantedAuthority> permAuthority = role.getPermissions() != null
+                            ? role.getPermissions().stream().map(p -> new SimpleGrantedAuthority(p.getCode()))
+                            : Stream.empty();
+                    return Stream.concat(roleAuthority, permAuthority);
+                })
                 .collect(Collectors.toSet());
 
         System.out.println("UserDetails loaded → " + user.getEmail());
@@ -41,3 +47,4 @@ public class UserDetailsServiceImpl implements UserDetailsService {
                 .build();
     }
 }
+
